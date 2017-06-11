@@ -4,11 +4,27 @@
   box-sizing: border-box;
   font-family: 'Oswald', sans-serif; }
 
+.caption h1 {
+  color: #D0482B; }
+
+a {
+  text-decoration: none;
+  color: black; }
+
+.active a::after {
+  left: 0;
+  width: 100%;
+  visibility: visible;
+  border-color: black; }
+.active a {
+  color: black; }
+
 nav {
   position: fixed;
-  top: 0;
   left: 0;
-  background-color: coral;
+  top: 0;
+  z-index: 3;
+  background-color: #D0482B;
   width: 100%;
   height: 90px; }
   nav ul {
@@ -21,29 +37,155 @@ nav {
     nav ul li {
       position: relative;
       height: inherit;
-      display: inline-block;
-      padding: 40px 15px; }
+      display: inline-block; }
       nav ul li a {
         position: relative;
+        height: inherit;
+        width: inherit;
         display: inline-block;
-        text-decoration: none;
+        padding: 40px 15px;
         color: white;
+        -moz-transition: 0.2s;
+        -webkit-transition: 0.2s;
+        -o-transition: 0.2s;
         transition: 0.2s; }
         nav ul li a::after {
           position: absolute;
-          top: 100%;
           left: 50%;
+          top: 75%;
           visibility: hidden;
           width: 0;
           content: "";
           border: 1px solid black;
+          -moz-transition: 0.2s;
+          -webkit-transition: 0.2s;
+          -o-transition: 0.2s;
           transition: 0.2s; }
-      nav ul li:hover a::after {
-        left: 0;
-        width: 100%;
-        visibility: visible;
-        border-color: black; }
-      nav ul li:hover a {
-        color: black; }
+        nav ul li a:hover {
+          color: black; }
+          nav ul li a:hover::after {
+            left: 0;
+            width: 100%;
+            visibility: visible;
+            border-color: black; }
+
+#home-page {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: url("../img/paris.jpg") no-repeat center fixed;
+  overflow: hidden; }
+  #home-page #home-content {
+    position: relative;
+    top: 90px;
+    z-index: 2;
+    width: 100%;
+    height: auto;
+    padding: 40px 0; }
+    #home-page #home-content .profile {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background-color: white;
+      text-align: center;
+      margin: auto;
+      padding-top: 50px;
+      line-height: 2.5; }
+    #home-page #home-content .socials {
+      position: relative;
+      width: 100%;
+      padding: 30px 0; }
+      #home-page #home-content .socials ul {
+        position: relative;
+        list-style-type: none;
+        width: 300px;
+        margin: auto;
+        text-align: center; }
+        #home-page #home-content .socials ul li {
+          display: inline-block;
+          height: 40px;
+          width: 40px;
+          margin: 0 15px; }
+          #home-page #home-content .socials ul li a {
+            display: inline-block;
+            position: relative;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: white;
+            text-align: center;
+            overflow: hidden;
+            font-size: 1.5em; }
+            #home-page #home-content .socials ul li a i {
+              position: relative;
+              width: inherit;
+              height: inherit;
+              top: -48px;
+              -moz-transition: 0.5s;
+              -webkit-transition: 0.5s;
+              -o-transition: 0.5s;
+              transition: 0.5s; }
+            #home-page #home-content .socials ul li a .hover-bottom {
+              visibility: visible;
+              color: black; }
+            #home-page #home-content .socials ul li a .hover-top {
+              visibility: hidden;
+              color: #D0482B; }
+            #home-page #home-content .socials ul li a:hover i {
+              top: 0; }
+            #home-page #home-content .socials ul li a:hover .hover-bottom {
+              visibility: hidden; }
+            #home-page #home-content .socials ul li a:hover .hover-top {
+              visibility: visible; }
+    #home-page #home-content .arrow-down {
+      position: relative;
+      width: 120px;
+      height: 65px;
+      margin: auto;
+      text-align: center;
+      overflow: hidden; }
+      #home-page #home-content .arrow-down::before {
+        position: absolute;
+        left: 24px;
+        bottom: 100px;
+        content: "";
+        width: 70px;
+        height: 70px;
+        transform: rotate(45deg);
+        background-color: #D0482B;
+        -moz-transition: 0.5s;
+        -webkit-transition: 0.5s;
+        -o-transition: 0.5s;
+        transition: 0.5s; }
+      #home-page #home-content .arrow-down a {
+        position: relative;
+        display: inline-block;
+        height: inherit;
+        width: inherit;
+        z-index: 2; }
+      #home-page #home-content .arrow-down::after {
+        position: absolute;
+        left: 24px;
+        bottom: 28px;
+        content: "";
+        width: 70px;
+        height: 70px;
+        transform: rotate(45deg);
+        border-right: 1px solid black;
+        border-bottom: 1px solid black;
+        -moz-transition: 0.2s;
+        -webkit-transition: 0.2s;
+        -o-transition: 0.2s;
+        transition: 0.2s; }
+      #home-page #home-content .arrow-down:hover {
+        cursor: pointer; }
+        #home-page #home-content .arrow-down:hover::before {
+          bottom: 30px; }
+        #home-page #home-content .arrow-down:hover::after {
+          bottom: 20px; }
 
 /*# sourceMappingURL=style.css.map */

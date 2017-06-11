@@ -5,3 +5,40 @@
     display: table;
   }
 }
+
+@mixin circleContent($width, $height, $color) {
+    position: relative;
+    width: $width;
+    height: $height;
+    border-radius: 50%;
+    background-color: $color;
+    text-align: center;
+}
+
+@mixin transitions($duration) {
+  -moz-transition: $duration;
+  -webkit-transition: $duration;
+  -o-transition: $duration;
+  transition: $duration;
+}
+
+@mixin position($p, $l, $t, $r, $b, $zi) {
+  @if $p != null {
+    position: $p;
+  }
+  @if $l != null {
+    left: $l;
+  }
+  @if $t != null {
+    top: $t;
+  }
+  @if $r != null {
+    right: $r;
+  }
+  @if $b != null {
+    bottom: $b;
+  }
+  @if $zi != null {
+    z-index: $zi;
+  }
+}
