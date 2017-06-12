@@ -20,15 +20,17 @@ a {
   color: $secondaryColor;
 }
 
-.active {
-  & a::after {
-    left: 0;
-    width: 100%;
-    visibility: visible;
-    border-color: $secondaryColor;
-  }
-  & a {
-    color: $secondaryColor;
+section {
+  @include position(absolute, 0, 0, null, null, 1);
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  & > div[id*='content']{
+      @include position(relative, null, 90px, null, null, 2);
+      width: 100%;
+      height: auto;
+      padding: 40px 0;
   }
 }
 
@@ -38,6 +40,8 @@ nav {
   background-color: $primaryColor;
   width: 100%;
   height: 90px;
+  @include transitions(1.5s);
+  transition-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
   ul {
     position: relative;
     width: 100%;
@@ -65,7 +69,7 @@ nav {
           border: 1px solid $secondaryColor;
           @include transitions(0.2s);
         }
-        &:hover{
+        &:hover, &.active{
           color: $secondaryColor;
           &::after {
             left: 0;
@@ -81,16 +85,10 @@ nav {
 
 // home-page css
 #home-page {
-  @include position(absolute, 0, 0, null, null, 1);
-  width: 100%;
-  height: 100%;
   background: url("../img/paris.jpg") no-repeat center fixed;
-  overflow: hidden;
+  background-size: cover;
+  display: none;
   #home-content {
-    @include position(relative, null, 90px, null, null, 2);
-    width: 100%;
-    height: auto;
-    padding: 40px 0;
     .profile {
       @include circleContent(300px, 300px, $alternateColor);
       margin: auto;
@@ -168,6 +166,7 @@ nav {
         display: inline-block;
         height: inherit;
         width: inherit;
+        color: $secondaryColor;
         z-index: 2;
       }
       &::after {
@@ -191,4 +190,57 @@ nav {
       }
     }
   }
+}
+
+// about-page css
+#about-page {
+  background: url("../img/bicycle1.jpg") no-repeat center fixed;
+  background-size: cover;
+  display: none;
+  #about-content {
+    .row {
+      position: relative;
+      top: 20px;
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+.bio {
+  position: relative;
+  width: 80%;
+  margin: auto;
+  color: $alternateColor;
+  .bio-content{
+    width: 50%;
+    h1 {
+      padding: 20px;
+      font-size: 2em;
+      border-bottom: 1px solid $alternateColor;
+      &::after {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        margin-bottom: -5px;
+        content: "";
+        border: 5px solid $alternateColor;
+        transform: rotate(45deg);
+      }
+    }
+  }
+}
+
+#skills-page {
+  background: $lightSecondary;
+  display: none;
+}
+
+#showcase-page {
+  background: $lightAlternate;
+  display: none;
+}
+
+#contact-page {
+  background: $lightAlternate;
+  display: none;
 }
