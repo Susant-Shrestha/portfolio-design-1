@@ -18,6 +18,7 @@ $(document).ready(function() {
       saveActiveBtn(active);
       showSection();
       positionScrollBar();
+      activeContent.on("scroll", scrollBarEventHandler);
       translateMenuBar();
     }
   });
@@ -93,14 +94,15 @@ $(document).ready(function() {
 
 
   //scroll-bar parallax functions start
-  $(activeContent).on("scroll", function() {
+  function scrollBarEventHandler() {
     positionScrollBar();
+    console.log("I am here");
     var st = activeContent.scrollTop();
     var speed = sbnh/100;
     st = speed * st;
     scrollBarNav.css({
       "top": st
     });
-  });
+  }
 
 });
