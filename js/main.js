@@ -18,6 +18,7 @@ $(document).ready(function() {
       saveActiveBtn(active);
       showSection();
       positionScrollBar();
+      activeContent.scrollTop(0);
       activeContent.on("scroll", scrollBarEventHandler);
       translateMenuBar();
     }
@@ -30,6 +31,8 @@ $(document).ready(function() {
     saveActiveBtn(active);
     showSection();
     positionScrollBar();
+    activeContent.scrollTop(0);
+    activeContent.on("scroll", scrollBarEventHandler);
     translateMenuBar();
   });
 
@@ -83,20 +86,22 @@ $(document).ready(function() {
 
     activeContent.outerHeight(dh-90);
     var ah = activeContent.outerHeight(); // get active section content height
-    var rh = rowContainer.outerHeight();
+    var rh = rowContainer.outerHeight() + 80;
     scrollBar.height(ah); // set the scroll bar height
     var sbh = scrollBar.height(); // get scroll bar height
     sbnh = (sbh/rh)*100; // set scroll bar navigation height
     scrollBarNav.height(sbnh+"%");
-    // console.log(dh+" "+ah+" "+rh+" "+sbh+" "+sbnh);
+    console.log(dh+" "+ah+" "+rh+" "+sbh+" "+sbnh);
   }
   // section-page navigation functions end
 
 
   //scroll-bar parallax functions start
+  console.log(activeContent.attr("id"));
+  activeContent.scrollTop(0);
+  activeContent.on("scroll", scrollBarEventHandler);
   function scrollBarEventHandler() {
     positionScrollBar();
-    console.log("I am here");
     var st = activeContent.scrollTop();
     var speed = sbnh/100;
     st = speed * st;

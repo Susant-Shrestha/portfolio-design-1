@@ -32,6 +32,12 @@ section {
       opacity: 0.5;
       filter: alpha(opacity=50); }
 
+.row {
+  position: relative;
+  top: 20px;
+  width: 100%;
+  height: auto; }
+
 nav {
   position: fixed;
   left: 0;
@@ -199,11 +205,6 @@ nav {
   background: url("../img/bicycle1.jpg") no-repeat center fixed;
   background-size: cover;
   display: none; }
-  #about-page #about-content .row-container .row {
-    position: relative;
-    top: 20px;
-    width: 100%;
-    height: auto; }
 
 .bio {
   position: relative;
@@ -217,6 +218,7 @@ nav {
       position: relative;
       padding: 15px 0;
       font-size: 2em;
+      letter-spacing: 5px;
       border-bottom: 1px solid white; }
       .bio .bio-content h1::after {
         position: absolute;
@@ -230,10 +232,105 @@ nav {
       position: relative;
       padding: 15px 0;
       text-align: left; }
+    .bio .bio-content .bio-circles {
+      position: relative;
+      margin-top: 40px; }
+      .bio .bio-content .bio-circles ul {
+        list-style-type: none;
+        color: #D0482B; }
+        .bio .bio-content .bio-circles ul li {
+          position: relative;
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          background-color: #4A504F;
+          text-align: center;
+          display: inline-block;
+          margin: 0 20px;
+          padding-top: 20px;
+          -moz-transition: 0.5s;
+          -webkit-transition: 0.5s;
+          -o-transition: 0.5s;
+          transition: 0.5s; }
+          .bio .bio-content .bio-circles ul li div {
+            line-height: 2; }
+          .bio .bio-content .bio-circles ul li .second {
+            color: white;
+            -moz-transition: 0.5s;
+            -webkit-transition: 0.5s;
+            -o-transition: 0.5s;
+            transition: 0.5s; }
+          .bio .bio-content .bio-circles ul li:hover {
+            background-color: white; }
+            .bio .bio-content .bio-circles ul li:hover .second {
+              color: black; }
 
 #skills-page {
   background: #4A504F;
   display: none; }
+  #skills-page .characteristics {
+    background: url("../img/rain.jpg") no-repeat center fixed;
+    background-size: cover;
+    top: 40px; }
+    #skills-page .characteristics .section {
+      padding: 30px 0; }
+
+.section {
+  position: relative;
+  width: 80%;
+  margin: auto;
+  color: white; }
+  .section h1 {
+    position: relative;
+    width: 30%;
+    margin: auto;
+    font-size: 2em;
+    text-align: center;
+    padding: 15px 0;
+    letter-spacing: 5px;
+    border-bottom: 1px solid #EEEEEE; }
+    .section h1::after {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      margin-bottom: -5px;
+      content: "";
+      border: 5px solid white;
+      transform: rotate(45deg); }
+  .section p {
+    position: relative;
+    text-align: center;
+    margin: auto;
+    padding: 20px 0;
+    width: 50%; }
+  .section ul {
+    list-style-type: none;
+    width: inherit;
+    padding: 35px 0; }
+    .section ul li {
+      float: left;
+      width: 50%;
+      box-sizing: border-box;
+      padding: 20px 20px; }
+      .section ul li.chart-right {
+        text-align: right;
+        direction: rtl; }
+      .section ul li div {
+        display: inline-block;
+        margin: 0 10px; }
+        .section ul li div.chart {
+          position: relative;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background-color: white;
+          text-align: center;
+          color: #D0482B;
+          line-height: 3; }
+    .section ul::after {
+      content: "";
+      clear: both;
+      display: table; }
 
 #showcase-page {
   background: #EEEEEE;
@@ -245,7 +342,7 @@ nav {
 
 .scroll-bar {
   position: fixed;
-  right: 2px;
+  right: 4px;
   top: 90px;
   width: 10px;
   background: white;
@@ -259,6 +356,6 @@ nav {
     position: absolute;
     top: 0;
     width: inherit;
-    background: #4A504F; }
+    background: black; }
 
 /*# sourceMappingURL=style.css.map */

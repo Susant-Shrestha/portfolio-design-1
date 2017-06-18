@@ -41,6 +41,13 @@ section {
   }
 }
 
+.row {
+  position: relative;
+  top: 20px;
+  width: 100%;
+  height: auto;
+}
+
 // nav css
 nav {
   @include position(fixed, 0, 0, null, null, 3);
@@ -204,16 +211,6 @@ nav {
   background: url("../img/bicycle1.jpg") no-repeat center fixed;
   background-size: cover;
   display: none;
-  #about-content {
-    .row-container {
-      .row {
-        position: relative;
-        top: 20px;
-        width: 100%;
-        height: auto;
-      }
-    }
-  }
 }
 .bio {
   position: relative;
@@ -227,6 +224,7 @@ nav {
       position: relative;
       padding: 15px 0;
       font-size: 2em;
+      letter-spacing: 5px;
       border-bottom: 1px solid $alternateColor;
       &::after {
         position: absolute;
@@ -243,12 +241,106 @@ nav {
       padding: 15px 0;
       text-align: left;
     }
+    .bio-circles {
+      position: relative;
+      margin-top: 40px;
+      ul {
+        list-style-type: none;
+        color: $primaryColor;
+        li {
+          @include circleContent(100px, 100px, $lightSecondary);
+          display: inline-block;
+          margin: 0 20px;
+          padding-top: 20px;
+          @include transitions(0.5s);
+          div {
+            line-height: 2;
+          }
+          .second {
+            color: $alternateColor;
+            @include transitions(0.5s);
+          }
+          &:hover {
+            background-color: $alternateColor;
+            & .second {
+              color: $secondaryColor;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
 #skills-page {
   background: $lightSecondary;
   display: none;
+  .characteristics{
+    background: url("../img/rain.jpg") no-repeat center fixed;
+    background-size: cover;
+    top: 40px;
+    .section {
+      padding: 30px 0;
+    }
+  }
+}
+.section {
+  position: relative;
+  width: 80%;
+  margin: auto;
+  color: $alternateColor;
+  h1 {
+    position: relative;
+    width: 30%;
+    margin: auto;
+    font-size: 2em;
+    text-align: center;
+    padding: 15px 0;
+    letter-spacing: 5px;
+    border-bottom: 1px solid $lightAlternate;
+    &::after {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      margin-bottom: -5px;
+      content: "";
+      border: 5px solid $alternateColor;
+      transform: rotate(45deg);
+    }
+  }
+  p {
+    position: relative;
+    text-align: center;
+    margin: auto;
+    padding: 20px 0;
+    width: 50%;
+  }
+  ul {
+    list-style-type: none;
+    width: inherit;
+    padding: 35px 0;
+    li {
+      // display: inline-block;
+      float: left;
+      width: 50%;
+      box-sizing: border-box;
+      padding: 20px 20px;
+      &.chart-right {
+        text-align: right;
+        direction: rtl;
+      }
+      div {
+        display: inline-block;
+        margin: 0 10px;
+        &.chart {
+          @include circleContent(50px, 50px, $alternateColor);
+          color: $primaryColor;
+          line-height: 3;
+        }
+      }
+    }
+    @include clearfix;
+  }
 }
 
 #showcase-page {
@@ -265,7 +357,7 @@ nav {
 //scroll bar css
 .scroll-bar {
   position: fixed;
-  right: 2px;
+  right: 4px;
   top: 90px;
   width: 10px;
   background: $alternateColor;
@@ -276,6 +368,6 @@ nav {
     position: absolute;
     top: 0;
     width: inherit;
-    background: $lightSecondary;
+    background: $secondaryColor;
   }
 }
